@@ -1,0 +1,32 @@
+body {
+  background-color: #111;
+}
+
+.bubble {
+  position: fixed;
+  bottom: calc(-1 * var(--bubble-size, 0));
+  left: calc(var(--bubble-left, 50%) + var(--bubble-offset, 0px));
+  width: var(--bubble-size, 10px);
+  height: var(--bubble-size, 10px);
+  background-color: var(--bubble-color, rebeccapurple);
+  border-radius: 50%;
+  animation: rise var(--bubble-duration, 1000ms) infinite ease-in;
+  animation-delay: calc(-1 * var(--bubble-delay, 400ms));
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+  }
+  10%, 80% {
+    opacity: var(--bubble-opacity);
+  }
+  90% {
+    transform: none;
+  }
+  100% {
+    bottom: var(--bubble-rise-to, 400px);
+    opacity: 0;
+    transform: scale(4);
+  }
+}

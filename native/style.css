@@ -1,9 +1,21 @@
+html {
+  height: 100%;
+}
+
 body {
-  background-color: #111;
+  background-color: #151515;
+  height: 100%;
+}
+
+#root {
+  width: 30%;
+  height: 80%;
+  position: relative;
+  margin: 0 auto;
 }
 
 .bubble {
-  position: fixed;
+  position: absolute;
   bottom: calc(-1 * var(--bubble-size, 0));
   left: calc(var(--bubble-left, 50%) + var(--bubble-offset, 0px));
   width: var(--bubble-size, 10px);

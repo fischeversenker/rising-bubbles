@@ -23,13 +23,15 @@ const makeBubble = ({ left, size, color, duration, opacity, riseTo, delay, offse
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const rootElement = document.querySelector('#root');
+
   const theme1 = '#0099cc';
   const theme2 = '#9900cc';
   const theme3 = '#00cc99';
   const bubbleCountPerColor = 100;
   const bubbles = [];
 
-  const colorWidth = window.innerWidth / 3; // count of colors
+  const colorWidth = rootElement.clientWidth / 3; // count of colors
   const spread = colorWidth * 2;
 
   // blueish
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: Math.random() + 0.2,
       offset: Math.random() * spread - (spread / 2),
       riseTo: 400,
-      left: (colorWidth / 2) / window.innerWidth * 100,
+      left: (colorWidth / 2) / rootElement.clientWidth * 100,
       delay: Math.random() * 1000,
     });
   }
@@ -66,18 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: Math.random(),
       offset: Math.random() * spread - (spread / 2),
       riseTo: Math.random() * 800,
-      left: (colorWidth * 3 - (colorWidth / 2)) / window.innerWidth * 100,
+      left: (colorWidth * 3 - (colorWidth / 2)) / rootElement.clientWidth * 100,
       delay: Math.random() * 1000,
     });
   }
 
-  const rootElement = document.querySelector('#root');
-  const wrapperElement = document.createElement('div');
-
   for (let i = 0; i < bubbles.length; i++) {
-    wrapperElement.appendChild(makeBubble(bubbles[i]));
+    rootElement.appendChild(makeBubble(bubbles[i]));
   }
-
-  rootElement.appendChild(wrapperElement);
 
 });
